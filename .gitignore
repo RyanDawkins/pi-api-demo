@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 
+src/environments/environments.prod.ts
+
 # dependencies
 /node_modules
 
