@@ -50,9 +50,9 @@ export class PiApiService {
             .map(piResponse => piResponse.Items);
     }
 
-    getInterpolated(webId: string) : Observable<PiElement[]> {
+    getPlot(webId: string) : Observable<PiElement[]> {
         return this.httpClient
-            .get(this.base_url + "/streamsets/" + webId + "/interpolated", { headers: this.getHeaders() })
+            .get(this.base_url + "/streamsets/" + webId + "/plot"+this.getTimeRange(), { headers: this.getHeaders() })
             .map(response => response as PiResponse<PiElement>)
             .map(piResponse => piResponse.Items);
     }
@@ -65,4 +65,9 @@ export class PiApiService {
         headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
         return headers;
     }
+
+    private getTimeRange() : string {
+        return "?startTime=10/18&endTime=11/8";
+    }
+
 }

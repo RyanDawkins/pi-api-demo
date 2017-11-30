@@ -34,7 +34,7 @@ export class FracService {
             .flatMap(elements => {
                 console.log("elements", elements);
                 let element = elements[0];
-                return this.piApiService.getInterpolated(element.WebId)
+                return this.piApiService.getPlot(element.WebId)
             });
     }
 
